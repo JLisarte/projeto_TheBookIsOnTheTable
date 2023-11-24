@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TheBookIsOnTheTable/AddItem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="nav">
+        <div>
+          <a class="logo" href="/index.html">
+            <img src="/Assents/iconLibrary.png" alt="Estante de livros">
+            <h1>The Book Is On The Table</h1>
+          </a>
+        </div>
+        <div class="button">
+          <input type="text" placeholder="Digite sua busca">
+          <button>Buscar</button>
+        </div>
+      </div>
+
+      <div class="add">
+
+        <a class="addItem" href="./addItem.htm" rel="noopener noreferrer">
+          <img src="/Assents/iconAddItem.png" alt="">
+          <p>Add item</p>
+        </a>
+
+        <a class="addUser" href="./addUser.htm" rel="noopener noreferrer">
+          <img src="/Assents/iconAddUser.png" alt="">
+          <p>Add User</p>
+        </a>
+
+      </div>
+
+    </div>
+  </header>
+  <form id="my-form">
+    <fieldset>
+      <div class="fieldset-wrapper">
+        <legend class="legend">Emprestar</legend>
+        <div class="input-wrapper">
+          <label for="title">Título</label>
+          <input type="text" id="title">
+          <button>Pesquisar</button>
+        </div>
+        <table>
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ano de Publicação</th>
+                <th>Emprestado</th>
+                <th>R.A do Usuário</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Harry Potter e a Pedra Filosofal</td>
+                <td>J. K. Rowling</td>
+                <td>1997</td>
+                <td>
+                </td>
+                <td>
+                  <label for="title">R.A.</label>
+                  <input type="text" id="title">                 
+                </td>
+              </tr>
+            </tbody>
+            
+        </table>
+      </div>
+    </fieldset>
+  </form>
+  <footer>
+    <button class="button" form="my-form">
+    Emprestar
+    </button>
+  </footer>
+</body>
+</html>
