@@ -190,7 +190,7 @@ footer button {
 table thead tr th{
   border-bottom: 1rem solid var(--color-base-1);
   font-size: 2rem;
-  width: 100%;
+  width: 15%
 }
 
 table tbody tr td {

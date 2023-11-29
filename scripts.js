@@ -80,12 +80,24 @@ class Biblioteca {
     this.usuarios = users
   }
 
+  salvar() {
+    localStorage.setItem("acervo", JSON.stringify(this.acervo))
+    localStorage.setItem("usuarios", JSON.stringify(this.usuarios))
+  }
+
   adicionarItem(item) {
     this.acervo.push(item)
+    this.salvar()
   }
+
   listarAcervo() {
+    const body = document.getElementById("#tbody")
+
     this.acervo.forEach(element => {
       console.log(element)
+      const newRow = createRow(element)
+      body.appendChild(newRow)
+
     });
   }
   
@@ -116,3 +128,50 @@ class Biblioteca {
   }
 }
 
+function createRow(EntidadeBibliografica) {
+  const tableRow = document.createElement("tr")
+  const tableTitulo = document.createElement("td")
+  const tableAutor = document.createElement("td")
+  const tableAnoPublicacao = document.createElement("td")
+  const tableTipo = document.createElement("td")
+  const tableGenero = document.createElement("td")
+  const tableEmprestado = document.createElement("td")
+  const tableUsuarioEmprestado = document.createElement("td")
+
+  tableTitulo.innerText = EntidadeBibliografica.titulo
+  tableAutor.innerText = EntidadeBibliografica.autor
+  tableAnoPublicacao.innerText = EntidadeBibliografica.anoPublicacao
+  tableTipo.innerText = EntidadeBibliografica.tipo
+  tableGenero.innerText = EntidadeBibliografica.genero
+  tableEmprestado.innerText = EntidadeBibliografica.emprestado ? "Sim" : "Não"
+  tableUsuarioEmprestado.innerText = EntidadeBibliografica.usuarioEmprestimo
+
+  tableRow.appendChild(tableTitulo)
+  tableRow.appendChild(tableAutor)
+  tableRow.appendChild(tableAnoPublicacao)
+  tableRow.appendChild(tableEmprestado)
+  tableRow.appendChild(tableUsuarioEmprestado)
+
+  return tableRow
+}
+
+const biblioteca = new Biblioteca([], []) 
+
+const btnInsert = document.getElementById("#buttonAddItem")
+
+const inputTitulo = document.getElementById("#title")
+const inputAutor = document.getElementById("#author")
+const inputAnoPublicacao = document.getElementById("#publicationYear")
+const inputType = document.getElementById("#type")
+const inputGenero = document.getElementById("#genre")
+
+btnInsert.addEventListener("click", () => {
+  const titulo = inputTitulo.value
+  const autor = inputAutor.value
+  const anoPublicacao = inputAnoPublicacao.value
+  const tipo = inputType.value
+  const genero = inputGenero.value
+
+  const item = new Livro(titulo, autor, anoPublicacao, tipo, genero)
+  biblioteca.adicionarItem(item)
+})
