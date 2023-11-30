@@ -35,7 +35,7 @@ class Livro extends EntidadeBibliografica {
     codigo,
     emprestado,
     usuarioEmprestimo,
-    genero,
+    genero
   ) {
     super(titulo, autor, anoPublicacao, codigo, emprestado, usuarioEmprestimo)
     this.genero = genero
@@ -56,21 +56,17 @@ class Revista extends EntidadeBibliografica {
     anoPublicacao,
     codigo,
     emprestado,
-    usuarioEmprestimo,
+    usuarioEmprestimo
   ) {
     super(titulo, autor, anoPublicacao, codigo, emprestado, usuarioEmprestimo)
   }
 }
 
 class Usuario {
-  constructor(
-    nome,
-    registroAcademico,
-    dataNascimento,
-  ) {
-    this.nome = nome;
-    this.registroAcademico = registroAcademico;
-    this.dataNascimento = dataNascimento;
+  constructor(nome, registroAcademico, dataNascimento) {
+    this.nome = nome
+    this.registroAcademico = registroAcademico
+    this.dataNascimento = dataNascimento
   }
 }
 
@@ -80,46 +76,35 @@ class Biblioteca {
     this.usuarios = users
   }
 
-  salvar() {
-    localStorage.setItem("acervo", JSON.stringify(this.acervo))
-    localStorage.setItem("usuarios", JSON.stringify(this.usuarios))
-  }
-
   adicionarItem(item) {
     this.acervo.push(item)
-    this.salvar()
   }
 
   listarAcervo() {
     const body = document.getElementById("#tbody")
 
-    this.acervo.forEach(element => {
+    this.acervo.forEach((element) => {
       console.log(element)
       const newRow = createRow(element)
       body.appendChild(newRow)
-
-    });
+    })
   }
-  
-  adicionarUser(user){
+
+  adicionarUser(user) {
     this.usuarios.push(user)
   }
 
-  emprestarItem(cod,user){
-    const item = this.acervo.find(
-      element => element.codigo === cod
-    )
-    if(!item) {
-      console.log("Item não encontrado");
+  emprestarItem(cod, user) {
+    const item = this.acervo.find((element) => element.codigo === cod)
+    if (!item) {
+      console.log("Item não encontrado")
       return
     }
     item.emprestar(user)
   }
 
-  devolverItem(cod){
-    const item = this.acervo.find(
-      element => element.codigo === cod
-    )
+  devolverItem(cod) {
+    const item = this.acervo.find((element) => element.codigo === cod)
     if (!item) {
       console.log("Item não encontrado")
       return
@@ -155,23 +140,41 @@ function createRow(EntidadeBibliografica) {
   return tableRow
 }
 
-const biblioteca = new Biblioteca([], []) 
+const biblioteca = new Biblioteca([], [])
 
-const btnInsert = document.getElementById("#buttonAddItem")
+const formAddItem = document.getElementById("my-form")
 
-const inputTitulo = document.getElementById("#title")
-const inputAutor = document.getElementById("#author")
-const inputAnoPublicacao = document.getElementById("#publicationYear")
-const inputType = document.getElementById("#type")
-const inputGenero = document.getElementById("#genre")
+const inputTitulo = document.getElementById("title")
+const inputAutor = document.getElementById("author")
+const inputAnoPublicacao = document.getElementById("publicationYear")
+const inputType = document.getElementById("type")
+const inputGenero = document.getElementById("genre")
 
-btnInsert.addEventListener("click", () => {
+formAddItem.addEventListener("submit", (e) => {
+  e.preventDefault()
   const titulo = inputTitulo.value
   const autor = inputAutor.value
   const anoPublicacao = inputAnoPublicacao.value
   const tipo = inputType.value
   const genero = inputGenero.value
 
-  const item = new Livro(titulo, autor, anoPublicacao, tipo, genero)
-  biblioteca.adicionarItem(item)
+  console.log(tipo)
+  console.log(typeof tipo)
+  if(tipo === "book") {
+    item = new Livro(titulo, autor, anoPublicacao, tipo, genero)
+    biblioteca.adicionarItem(item)
+  } else if (tipo === "magazine") {
+    item = new Revista(titulo, autor, anoPublicacao, tipo)
+    biblioteca.adicionarItem(item)
+  }
 })
+
+// inputType.addEventListener("change", () => {
+//   const tipo = inputType.value
+//   const option_genre = document.getElementById("option_genre")
+//   if (tipo === "book") {
+//     option_genre.style.display = "block"
+//   } else {
+//     option_genre.style.display = "none"
+//   }
+// })
