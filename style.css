@@ -33,7 +33,7 @@ header {
 }
 
 header .nav{
-  background: var(--color-base-1);
+  background: linear-gradient(90deg, var(--color-base-1) 0%, var(--color-base-2) 100%);
   padding: 1rem;
 }
 
@@ -46,13 +46,15 @@ header .nav .logo {
 }
 
 header .nav .logo h1 {
-  color: var(--color-base-white);
+  background-image: linear-gradient(to bottom, var(--color-base-white), var(--color-base-azul-100), var(--color-base-azul-200));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-family: 'Ephesis', cursive;
   font-size: 2.5rem;
   font-weight: 400;
   text-align: center;
   width: 15rem;
-  
 }
 
 header .nav .button {
@@ -91,7 +93,7 @@ header .add {
   align-items: center;
   margin-right: 2.0rem;
   width: 100%;
-  background: var(--color-base-2);
+  background: linear-gradient(90deg, var(--color-base-2) 0%, var(--color-base-1) 100%);
 }
 
 header .addItem {
@@ -117,7 +119,7 @@ main {
 
 main .collection {
   padding: 2rem 2rem 2rem 4rem;
-  background: var(--color-base-3);
+  background: linear-gradient(90deg, var(--color-base-3) 0%, var(--color-base-4) 100%);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -130,7 +132,7 @@ main .collection p {
 
 main .rent {
   padding: 2rem 2rem 2rem 4rem;
-  background: var(--color-base-4);
+  background: linear-gradient(90deg, var(--color-base-4) 0%, var(--color-base-3) 100%);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -143,7 +145,7 @@ main .rent p {
 
 main .giveBack {
   padding: 2rem 2rem 2rem 4rem;
-  background: var(--color-base-5);
+  background: linear-gradient(90deg, var(--color-base-azul-200) 0%, var(--color-base-4) 100%);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -201,8 +203,8 @@ table tbody tr td {
 
 @media screen and (min-width: 768px) {
   header .nav .logo h1 {
-    font-size: 5rem;
-    width: 50rem;
+    font-size: 6rem;
+    width: 60rem;
   }
 
   header .nav .button input {
