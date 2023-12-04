@@ -1,11 +1,10 @@
-import { saveItem, getItem } from "../js/storageFunctions.js"
+import { biblioteca } from "./addItem.js";
 
-// Defina seu item ou objeto
-const item = { name: "Livro", author: "Autor" }
+export function setItem() {
+  localStorage.setItem("itemBiblioteca", JSON.stringify(biblioteca));
+}
 
-// Salve o item no localStorage
-saveItem(item)
+export function getItem() {
+localStorage.getItem("itemBiblioteca");
+}
 
-// Para recuperar o item salvo
-const retrievedItem = getItem()
-console.log(retrievedItem) // Isso mostrará o item recuperado do localStorage

@@ -10,7 +10,7 @@ const inputType = document.getElementById("type")
 const inputGenero = document.getElementById("genre")
 const option_genre = document.getElementById("option_genre")
 
-const biblioteca = new Biblioteca([], [])
+export const biblioteca = new Biblioteca([], [])
 
 formAddItem.addEventListener("submit", (e) => {
   e.preventDefault()
@@ -19,6 +19,8 @@ formAddItem.addEventListener("submit", (e) => {
   const anoPublicacao = inputAnoPublicacao.value
   const tipo = inputType.value
   const genero = inputGenero.value
+
+  let item
 
   if (tipo === "book") {
     item = new Livro(titulo, autor, anoPublicacao, tipo, genero)
@@ -42,4 +44,4 @@ inputType.addEventListener("change", () => {
   }
 })
 
-export let item
+

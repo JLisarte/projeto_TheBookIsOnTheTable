@@ -1,9 +1,11 @@
-import { item } from "./addItem.js";
-import { API } from "./store.js";
+import { getItem } from "./localStorage.js";
+import { createRowFromStorage } from "./collection.js";
 
 export function createItem() {
-  const newItem = { ...item };
-  API.adicionarItem(newItem);
-  return newItem;
+  const items = getItem();
+  items.forEach(item => {
+    createRowFromStorage(item);
+  });
 } 
+
 

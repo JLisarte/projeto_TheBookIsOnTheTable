@@ -7,7 +7,7 @@ export class Biblioteca {
   }
 
   adicionarItem(newItem) {
-    newItem = Store.getAcervo()
+    //newItem = Store.getAcervo()
     this.acervo.push(newItem)
   }
 
