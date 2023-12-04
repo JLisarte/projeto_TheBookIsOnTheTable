@@ -1,4 +1,4 @@
-class EntidadeBibliografica {
+export class EntidadeBibliografica {
   constructor(titulo, autor, anoPublicacao, codigo) {
     this.titulo = titulo
     this.autor = autor

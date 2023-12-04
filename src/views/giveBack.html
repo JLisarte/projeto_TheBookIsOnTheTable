@@ -7,15 +7,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TheBookIsOnTheTable/AddItem</title>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="/src/styles/style.css">
 </head>
 <body>
   <header>
     <div class="header">
       <div class="nav">
         <div>
-          <a class="logo" href="../index.html">
-            <img src="../Assents/iconLibrary.png" alt="Estante de livros">
+          <a class="logo" href="/index.html">
+            <img src="/src/assets/iconLibrary.png" alt="Estante de livros">
             <h1>The Book Is On The Table</h1>
           </a>
         </div>
@@ -27,13 +27,13 @@
 
       <div class="add">
 
-        <a class="addItem" href="./addItem.htm" rel="noopener noreferrer">
-          <img src="../Assents/iconAddItem.png" alt="">
+        <a class="addItem" href="/src/views/addItem.htm" rel="noopener noreferrer">
+          <img src="/src/assets/iconAddItem.png" alt="">
           <p>Add item</p>
         </a>
 
-        <a class="addUser" href="./addUser.htm" rel="noopener noreferrer">
-          <img src="../Assents/iconAddUser.png" alt="">
+        <a class="addUser" href="/src/views/addUser.htm" rel="noopener noreferrer">
+          <img src="/src/assets/iconAddUser.png" alt="">
           <p>Add User</p>
         </a>
 
@@ -44,24 +44,18 @@
   <form id="my-form">
     <fieldset>
       <div class="fieldset-wrapper">
-        <legend>Adicione um usuário</legend>
-        <div class="input-wrapper">
-          <label for="name">Nome</label>
-          <input type="text" id="name">
+        <legend class="legend">Devolver Empréstimo</legend>
+        <div class="table">
+          <div class="input-wrapper">
+            <label for="ra">R.A.</label>
+            <input type="text" id="ra">
+          </div>              
         </div>
-        <div class="input-wrapper">
-          <label for="ra">R.A.</label>
-          <input type="text" id="ra">
-        </div>
-        <div class="input-wrapper">
-          <label for="bornDate">Data de Nascimento</label>
-          <input type="date" id="bornDate">
-      </div>
     </fieldset>
   </form>
   <footer>
     <button class="button" form="my-form">
-    Salvar
+    Devolver
     </button>
   </footer>
 </body>

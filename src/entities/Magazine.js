@@ -1,4 +1,6 @@
-class Revista extends EntidadeBibliografica {
+import { EntidadeBibliografica } from "../entities/BibliographicEntity.js"
+
+export class Revista extends EntidadeBibliografica {
   constructor(
     titulo,
     autor,

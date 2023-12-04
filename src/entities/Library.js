@@ -1,21 +1,18 @@
-class Biblioteca {
+import { Store } from "../entities/Store.js"
+
+export class Biblioteca {
   constructor(users, items) {
     this.acervo = items
     this.usuarios = users
   }
 
-  adicionarItem(item) {
-    this.acervo.push(item)
+  adicionarItem(newItem) {
+    newItem = Store.getAcervo()
+    this.acervo.push(newItem)
   }
 
   listarAcervo() {
     const body = document.getElementById("#tbody")
-
-    this.acervo.forEach((element) => {
-      console.log(element)
-      const newRow = createRow(element)
-      body.appendChild(newRow)
-    })
   }
 
   adicionarUser(user) {
