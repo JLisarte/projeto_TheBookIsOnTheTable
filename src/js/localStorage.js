@@ -1,8 +1,7 @@
-import { saveItem } from "./addItem.js"
-
-
-
-export function getItem() {
-localStorage.getItem("itemBiblioteca");
+export function getAcervo() {
+  return JSON.parse(localStorage.getItem("acervo")) || []
 }
 
+export function saveAcervo(acervo) {
+  localStorage.setItem("acervo", JSON.stringify(acervo))
+}

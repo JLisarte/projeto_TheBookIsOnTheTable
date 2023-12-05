@@ -1,6 +1,7 @@
 import { Livro } from "../entities/Book.js"
 import { Revista } from "../entities/Magazine.js"
 import { Biblioteca } from "../entities/Library.js"
+import { saveAcervo, getAcervo } from "../js/localStorage.js"
 
 const formAddItem = document.getElementById("my-form")
 const inputTitulo = document.getElementById("title")
@@ -31,8 +32,8 @@ formAddItem.addEventListener("submit", (e) => {
 
   formAddItem.reset()
 
-  let idMagazine = (`${tipoShort}${tituloShort}${codigo}`)
-  let idBook = (`${tipoShort}${generoShort}${codigo}`)
+  let idMagazine = `${tipoShort}${tituloShort}${codigo}`
+  let idBook = `${tipoShort}${generoShort}${codigo}`
 
   let item
 
@@ -45,11 +46,11 @@ formAddItem.addEventListener("submit", (e) => {
       entidadeBibliografica,
       genero
     )
-    
-    biblioteca.adicionarItem(item)
-    console.log(`Livro Adicionado - código: ${tipoShort}${tituloShort}${codigo}`)
-    
 
+    biblioteca.adicionarItem(item)
+    console.log(
+      `Livro Adicionado - código: ${tipoShort}${tituloShort}${codigo}`
+    )
   } else if (entidadeBibliografica === "Revista") {
     item = new Revista(
       idMagazine,
@@ -60,11 +61,15 @@ formAddItem.addEventListener("submit", (e) => {
     )
     biblioteca.adicionarItem(item)
     console.log(`Revista Adicionada - código: ${codigo}`)
-    
   }
 
-  console.log(biblioteca)
+  localStorage.setItem("itemBiblioteca", JSON.stringify(item))
+  // Salvar novo item na lista do localStorage
+  const storedAcervo = getAcervo()
+  storedAcervo.push(item) // Adicionar o novo item à lista
+  saveAcervo(storedAcervo) // Salvar a lista atualizada no localStorage
 
+  console.log(biblioteca)
 })
 
 inputType.addEventListener("change", () => {
