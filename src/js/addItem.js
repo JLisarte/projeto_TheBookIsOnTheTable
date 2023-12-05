@@ -65,7 +65,7 @@ formAddItem.addEventListener("submit", (e) => {
 
   localStorage.setItem("itemBiblioteca", JSON.stringify(item))
   // Salvar novo item na lista do localStorage
-  const storedAcervo = getAcervo()
+  const storedAcervo = getAcervo() || [] // Obter lista do localStorage
   storedAcervo.push(item) // Adicionar o novo item à lista
   saveAcervo(storedAcervo) // Salvar a lista atualizada no localStorage
 

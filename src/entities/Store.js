@@ -9,15 +9,23 @@ export class Store {
   async init() {
     try {
       const localStorageAcervo = getAcervo()
+      const apiData = await this.fetchAcervoData(
+        "https://api-biblioteca-mb6w.onrender.com/acervo"
+      )
 
-      if (!localStorageAcervo || localStorageAcervo.length === 0) {
-        await this.fetchAcervoData(
-          "https://api-biblioteca-mb6w.onrender.com/acervo"
-        )
-        saveAcervo(this.acervo) // Salvar itens no localStorage
+      if (localStorageAcervo && localStorageAcervo.length > 0) {
+        // Filtrar apenas os itens da API que não estão presentes no localStorage
+        const newItemsFromAPI = apiData.filter((apiItem) => {
+          return !localStorageAcervo.some(
+            (localItem) => localItem.id === apiItem.id
+          ) // Use uma propriedade única para identificar os itens
+        })
+
+        this.acervo = [...localStorageAcervo, ...newItemsFromAPI] // Adiciona apenas os novos itens ao acervo
+        saveAcervo(this.acervo) // Salva os itens atualizados no localStorage
       } else {
-        this.acervo = localStorageAcervo
-        console.log("Dados do Acervo do localStorage:", this.acervo)
+        this.acervo = apiData // Define a lista do localStorage como a lista da API, se não houver nada no localStorage
+        saveAcervo(this.acervo) // Salva os itens da API no localStorage
       }
 
       await this.fetchUsuariosData(
@@ -41,11 +49,10 @@ export class Store {
       if (!response.ok) {
         throw new Error("Erro ao buscar os dados do acervo")
       }
-      this.acervo = await response.json()
-      console.log("Dados do Acervo da API:", this.acervo)
+      const acervoAPI = await response.json()
+      console.log("Dados do Acervo da API:", acervoAPI)
 
-      // Salvar dados no localStorage após obter da API
-      localStorage.setItem("acervo", JSON.stringify(this.acervo))
+      return acervoAPI
     } catch (error) {
       console.error("Ocorreu um erro ao buscar os dados do acervo:", error)
       throw error
