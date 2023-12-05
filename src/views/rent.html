@@ -8,6 +8,7 @@
   <title>TheBookIsOnTheTable/AddItem</title>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/style.css">
+  
 </head>
 <body>
   <header>
@@ -41,7 +42,7 @@
 
     </div>
   </header>
-  <form id="my-form">
+  <form id="my-form-rent">
     <fieldset>
       <div class="fieldset-wrapper">
         <legend class="legend">Emprestar</legend>
@@ -53,6 +54,7 @@
         <table>
             <thead>
               <tr>
+                <th><img src="/src/assets/arrowDown.png" alt="Flexa apontada para baixo" width="15"></th>
                 <th>Título</th>
                 <th>Autor</th>
                 <th>Ano de Publicação</th>
@@ -60,28 +62,18 @@
                 <th>R.A do Usuário</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Harry Potter e a Pedra Filosofal</td>
-                <td>J. K. Rowling</td>
-                <td>1997</td>
-                <td>
-                </td>
-                <td>
-                  <label for="title">R.A.</label>
-                  <input type="text" id="title">                 
-                </td>
-              </tr>
+            <tbody id="tbodyRent">
             </tbody>
-            
         </table>
       </div>
     </fieldset>
   </form>
   <footer>
-    <button class="button" form="my-form">
+    <button id="rentButton" form="my-form-rent">
     Emprestar
     </button>
   </footer>
+  <script type="module" src="/src/js/rent.js" defer></script>
+  <script type="module" src="/app.js" defer></script>
 </body>
 </html>

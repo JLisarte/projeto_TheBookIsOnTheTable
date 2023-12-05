@@ -1,6 +1,7 @@
+import { saveAcervo } from "../js/localStorage.js"
 import { Store } from "../entities/Store.js"
 
-export function createRowFromStorage(e) {
+export function createRowCollection(e) {
   const storedData = e.getAcervo()
 
   const tbody = document.querySelector("#tbody")
@@ -68,3 +69,14 @@ export function createRowFromStorage(e) {
     })
   })
 }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const myStore = new Store()
+
+  try {
+    await myStore.init()
+    createRowCollection(myStore)
+  } catch (error) {
+    console.error("Ocorreu um erro durante a inicialização:", error)
+  }
+})

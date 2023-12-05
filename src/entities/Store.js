@@ -1,4 +1,9 @@
-import { getAcervo, saveAcervo } from "../js/localStorage.js"
+import { 
+  getAcervo, 
+  saveAcervo, 
+  getUsuarios, 
+  saveUsuarios 
+} from "../js/localStorage.js"
 
 export class Store {
   constructor() {
@@ -22,7 +27,8 @@ export class Store {
         })
 
         this.acervo = [...localStorageAcervo, ...newItemsFromAPI] // Adiciona apenas os novos itens ao acervo
-        saveAcervo(this.acervo) // Salva os itens atualizados no localStorage
+        saveAcervo(this.acervo)
+        
       } else {
         this.acervo = apiData // Define a lista do localStorage como a lista da API, se não houver nada no localStorage
         saveAcervo(this.acervo) // Salva os itens da API no localStorage
@@ -31,6 +37,7 @@ export class Store {
       await this.fetchUsuariosData(
         "https://api-biblioteca-mb6w.onrender.com/users"
       )
+      saveUsuarios(this.usuarios)
 
       console.log("Inicialização da Store concluída.")
     } catch (error) {
@@ -42,6 +49,11 @@ export class Store {
   getAcervo() {
     return this.acervo
   }
+
+  getUsuarios() {
+    return this.usuarios
+  }
+
 
   async fetchAcervoData(acervoUrl) {
     try {
