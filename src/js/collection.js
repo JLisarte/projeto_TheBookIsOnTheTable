@@ -1,5 +1,5 @@
 import { Store } from "../entities/Store.js"
-//import { getItem } from "../js/localStorage.js"
+
 
 export function createRowFromStorage(e) {
   const storedData = e.getAcervo()

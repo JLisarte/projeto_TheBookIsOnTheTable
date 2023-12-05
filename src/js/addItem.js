@@ -8,36 +8,68 @@ const inputAutor = document.getElementById("author")
 const inputAnoPublicacao = document.getElementById("publicationYear")
 const inputType = document.getElementById("type")
 const inputGenero = document.getElementById("genre")
-const option_genre = document.getElementById("option_genre")
+
 
 export const biblioteca = new Biblioteca([], [])
 
 formAddItem.addEventListener("submit", (e) => {
   e.preventDefault()
+  const createId = Date.now()
+  let sliceid = createId.toString().slice(-3)
+  const codigo = sliceid
   const titulo = inputTitulo.value
+  let sliceTitle = titulo.toString().slice(0, 1)
+  const tituloShort = sliceTitle.toUpperCase()
   const autor = inputAutor.value
   const anoPublicacao = inputAnoPublicacao.value
-  const tipo = inputType.value
+  const entidadeBibliografica = inputType.value
+  let sliceType = inputType.value.toString().slice(0, 1)
+  const tipoShort = sliceType.toUpperCase()
   const genero = inputGenero.value
+  let sliceGenre = inputGenero.value.toString().slice(0, 1)
+  const generoShort = sliceGenre.toUpperCase()
+
+  formAddItem.reset()
+
+  let idMagazine = (`${tipoShort}${tituloShort}${codigo}`)
+  let idBook = (`${tipoShort}${generoShort}${codigo}`)
 
   let item
 
-  if (tipo === "book") {
-    item = new Livro(titulo, autor, anoPublicacao, tipo, genero)
+  if (entidadeBibliografica === "Livro") {
+    item = new Livro(
+      idBook,
+      titulo,
+      autor,
+      anoPublicacao,
+      entidadeBibliografica,
+      genero
+    )
+    
     biblioteca.adicionarItem(item)
-    console.log(`Livro Adicionado`)
-  } else if (tipo === "magazine") {
-    item = new Revista(titulo, autor, anoPublicacao, tipo)
+    console.log(`Livro Adicionado - código: ${tipoShort}${tituloShort}${codigo}`)
+    
+
+  } else if (entidadeBibliografica === "Revista") {
+    item = new Revista(
+      idMagazine,
+      titulo,
+      autor,
+      anoPublicacao,
+      entidadeBibliografica
+    )
     biblioteca.adicionarItem(item)
-    console.log(`Revista Adicionado`)
+    console.log(`Revista Adicionada - código: ${codigo}`)
+    
   }
 
   console.log(biblioteca)
+
 })
 
 inputType.addEventListener("change", () => {
   const tipo = inputType.value
-  if (tipo === "book") {
+  if (tipo === "Livro") {
     option_genre.style.display = "block"
   } else {
     option_genre.style.display = "none"

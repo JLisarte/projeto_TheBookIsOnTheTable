@@ -1,9 +1,10 @@
 export class EntidadeBibliografica {
-  constructor(titulo, autor, anoPublicacao, codigo) {
+  constructor(codigo, titulo, autor, anoPublicacao, entidadeBibliografica) {
+    this.codigo = codigo
     this.titulo = titulo
     this.autor = autor
     this.anoPublicacao = anoPublicacao
-    this.codigo = codigo
+    this.entidadeBibliografica = entidadeBibliografica
     this.emprestado = false
     this.usuarioEmprestimo = null
   }

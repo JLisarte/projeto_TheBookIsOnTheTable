@@ -2,13 +2,22 @@ import { EntidadeBibliografica } from "../entities/BibliographicEntity.js"
 
 export class Revista extends EntidadeBibliografica {
   constructor(
+    codigo,
     titulo,
     autor,
     anoPublicacao,
-    codigo,
+    entidadeBibliografica,
     emprestado,
-    usuarioEmprestimo
+    usuarioEmprestimo,
   ) {
-    super(titulo, autor, anoPublicacao, codigo, emprestado, usuarioEmprestimo)
+    super(
+      codigo,
+      titulo,
+      autor,
+      anoPublicacao,
+      entidadeBibliografica,
+      emprestado,
+      usuarioEmprestimo,
+    )
   }
 }
