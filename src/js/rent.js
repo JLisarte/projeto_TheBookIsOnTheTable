@@ -1,4 +1,4 @@
-import { getAcervo, getUsuarios } from "../js/localStorage.js"
+import { getAcervo, getUsuarios, saveAcervo } from "../js/localStorage.js"
 import { Store } from "../entities/Store.js"
 
 export function createRowRent() {
@@ -71,10 +71,18 @@ export function createRowRent() {
       const select = row.querySelector("select")
 
       if (checkbox.checked && select.value !== "Selecione um usuário") {
-        // Lógica para emprestar o item ao usuário selecionado
-        console.log(
-          `Item ${acervo.titulo} emprestado para o usuário ${select.value}`
+        // Encontra o item selecionado para emprestar
+        const itemIndex = storedData.findIndex(
+          (item) => item.codigo === acervo.codigo
         )
+        if (itemIndex !== -1) {
+          storedData[itemIndex].emprestado = true // Atualiza o atributo emprestado para true
+          storedData[itemIndex].usuarioEmprestimo = `${select.options[select.selectedIndex].text}` // Atualiza usuarioEmprestimo com RA e nome do usuário selecionado
+          saveAcervo(storedData) // Salva os dados atualizados no localStorage
+          console.log(
+            `Item ${acervo.titulo} emprestado para o usuário ${select.value}`
+          )
+        }
       }
     })
   })
