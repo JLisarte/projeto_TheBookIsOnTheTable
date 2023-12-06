@@ -1,3 +1,4 @@
+//rent.js
 import { getAcervo, getUsuarios, saveAcervo } from "../js/localStorage.js"
 import { Store } from "../entities/Store.js"
 
@@ -47,9 +48,26 @@ export function createRowRent() {
       selectElement.appendChild(option)
     }
 
-    // Adiciona evento de escuta para habilitar a seleção do usuário quando o checkbox é marcado
-    tableCheckbox.addEventListener("click", () => {
-      selectElement.disabled = !tableCheckbox.checked
+    // Adiciona evento de escuta para cada checkbox
+    tableCheckbox.addEventListener("change", () => {
+      if (tableCheckbox.checked) {
+        selectElement.disabled = false // Habilita o select ao marcar o checkbox
+
+        selectElement.addEventListener("change", () => {
+          if (selectElement.value !== "Selecione um usuário") {
+            acervo.emprestado = true
+            acervo.usuarioEmprestimo = `${
+              selectElement.options[selectElement.selectedIndex].text
+            }`
+            saveAcervo(storedData)
+            console.log(
+              `Item ${acervo.titulo} emprestado para o usuário ${selectElement.value}`
+            )
+          }
+        })
+      } else {
+        selectElement.disabled = true // Desabilita o select ao desmarcar o checkbox
+      }
     })
 
     tableUsuarioEmprestado.appendChild(selectElement)
@@ -65,24 +83,24 @@ export function createRowRent() {
   // Adiciona evento para o botão "Emprestar"
   const rentButton = document.querySelector("#rentButton")
   rentButton.addEventListener("click", () => {
-    storedData.forEach((acervo) => {
-      const checkbox = document.getElementById(acervo.codigo)
+    const checkboxes = document.querySelectorAll(
+      "#tbodyRent input[type='checkbox']:checked"
+    )
+
+    checkboxes.forEach((checkbox) => {
+      const acervo = storedData.find((item) => item.codigo === checkbox.id)
       const row = checkbox.parentNode.parentNode
       const select = row.querySelector("select")
 
       if (checkbox.checked && select.value !== "Selecione um usuário") {
-        // Encontra o item selecionado para emprestar
-        const itemIndex = storedData.findIndex(
-          (item) => item.codigo === acervo.codigo
+        acervo.emprestado = true
+        acervo.usuarioEmprestimo = `${
+          select.options[select.selectedIndex].text
+        }`
+        saveAcervo(storedData)
+        console.log(
+          `Item ${acervo.titulo} emprestado para o usuário ${select.value}`
         )
-        if (itemIndex !== -1) {
-          storedData[itemIndex].emprestado = true // Atualiza o atributo emprestado para true
-          storedData[itemIndex].usuarioEmprestimo = `${select.options[select.selectedIndex].text}` // Atualiza usuarioEmprestimo com RA e nome do usuário selecionado
-          saveAcervo(storedData) // Salva os dados atualizados no localStorage
-          console.log(
-            `Item ${acervo.titulo} emprestado para o usuário ${select.value}`
-          )
-        }
       }
     })
   })
