@@ -40,11 +40,31 @@
 
     </div>
   </header>
+  <form id="my-form">
+    <fieldset>
+      <div class="fieldset-wrapper">
+        <legend class="legend">Usuários</legend>
+        <div class="table">
+          <table>
+            <thead>
+              <tr>
+                <th><img src="/src/assets/arrowDown.png" alt="Flexa apontada para baixo" width="15"></th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Data de Nascimento</th>
+              </tr>
+            </thead>
+            <tbody  id="tbodyUser">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </fieldset>
   <footer>
     <button id="deleteButton" form="my-form">
     Excluir
     </button>
   </footer>
-  <script type="module" src="/src/js/collection.js" defer></script>
+  <script type="module" src="/src/js/users.js" defer></script>
 </body>
 </html>
