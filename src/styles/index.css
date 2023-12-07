@@ -35,7 +35,7 @@ body {
 body:before{
   content: "";
   position: absolute;
-  width: 100rem;
+  width: 65%;
   height: 100vh;
   background: var(--color-base-6);
   z-index: -1;
@@ -167,16 +167,40 @@ main .imgbookHome img {
   border-radius: 25%;
 }
 
+.carousel {
+  width: 15rem;
+  overflow: hidden;
+  position: relative;
+}
+
 main .imgNews {
-  margin: 1rem 0 0 5rem;
+  margin: 2rem 0 0 5rem;
   display: flex;
   align-items: center;
+  
   gap: 2rem;
+  transition: trasnform 0.5s ease;
 }
 
 main .imgNews img {
-  width: 10rem;
+  width: 100%;
+  height: auto;
   border-radius: 25%;
+  margin-right: 2rem;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-610px);
+  }
+}
+
+main .imgNews {
+  animation: slide 10s infinite;
+
 }
 
 main .social h5 {
