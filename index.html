@@ -6,37 +6,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TheBookIsOnTheTable</title>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/style.css">
 </head>
 <body>
   <header>
     <div class="header">
+
       <div class="nav">
-        <div >
-          <a class="logo" href="./index.html">
-            <img src="./src/assets/iconLibrary.png" alt="Estante de livros">
+        
+          <a class="homeOne" href="./index.html">
             <h1>The Book Is On The Table</h1>
           </a>
-        </div>
-        <div class="button">
-          <input type="text" placeholder="Digite sua busca">
-          <button>Buscar</button>
-        </div>
+          <a class="homeTwo" href="./index.html">
+            <h3>Home</h3>
+          </a>
+          <a class="collecction" href="#">
+            <h3>Acervo</h3>
+          </a>
+          <a class="rent" href="#">
+            <h3>Usuários</h3>
+          </a>        
+          <a class="about" href="#">
+            <h3>Sobre</h3>
+          </a>        
       </div>
-
-      <div class="add">
-
-        <a class="addItem" href="./src/views/addItem.html" rel="noopener noreferrer">
-          <img src="./src/assets/iconAddItem.png" alt="">
-          <p>Add item</p>
-        </a>
-
-        <a class="addUser" href="./src/views/addUser.html" rel="noopener noreferrer">
-          <img src="./src/assets/iconAddUser.png" alt="">
-          <p>Add User</p>
-        </a>
-
+      <div class="searchButton">
+        <input type="text" placeholder="Digite sua busca">
+        <button>
+          &#128269;
+        </button>
       </div>
 
     </div>
@@ -44,31 +43,34 @@
 
   <main>
 
-    <div class="itens">
-
-      
-        <a class="collection" href="./src/views/collection.html">
-          <img src="./src/assets/iconBooks.png" alt="">
-          <p>Listar acervo</p>
-        </a>
-      
-
-      <a class="rent" href="./src/views/rent.html">
-        <img src="./src/assets/iconsRent.png" alt="">
-        <p>Emprestar</p>
-      </a>
-
-      <a class="giveBack" href="./src/views/giveBack.html">
-        <img src="./src/assets/iconGiveBack.png" alt="">
-        <p>Devolver Item</p>
-      </a>
-      
+    <div class="items">
+      <div class="firstItems">
+        <fieldset>
+          <h1>Seja bem vindo ao The Book Is On The Table</h1>
+          <h2>A melhor maneira de gerenciar seu aservo</h2>
+          <p>Cadastre seu acervo e seus alunos de maneira rápida e fácil</p>
+          <p>Adicione alunos e empreste sem complicação</p>
+        </fieldset>
+          
+        <div class="imgNews">
+          <img src="/src/assets/download.jpg" alt="Imagem de uma pessoa lendo um livro">
+          <h4 style="text-decoration: underline;">Novidades</h4>
+        </div>
+      </div>
+      <div class="imgbookHome">
+        <img src="./src/assets/bookHome.jpg" alt="Imagem de livros">
+      </div>
+      <div class="social">
+        <h5>social</h5>
+      </div>
     </div>
     
   </main>
 
   <footer>
-    <div class="footer"></div>
+    <div class="footer">
+
+    </div>
   </footer>
 </body>
 </html>
