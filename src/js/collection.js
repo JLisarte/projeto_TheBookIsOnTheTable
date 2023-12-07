@@ -1,12 +1,10 @@
-import { saveAcervo } from "../js/localStorage.js"
 import { Store } from "../entities/Store.js"
 
 export function createRowCollection(e) {
-  const storedData = e.getAcervo()
-
   const tbody = document.querySelector("#tbody")
 
-  storedData.forEach((acervo) => {
+  // Função para criar uma linha na tabela com os dados do acervo
+  function createTableRow(acervo) {
     const tableRow = document.createElement("tr")
     const tableCheckbox = document.createElement("input")
     tableCheckbox.type = "checkbox"
@@ -25,14 +23,10 @@ export function createRowCollection(e) {
     tableAutor.innerText = acervo.autor
     tableAnoPublicacao.innerText = acervo.anoPublicacao
     tableTipo.innerText = acervo.entidadeBibliografica
-    tableGenero.innerText = acervo.genero
-    if (acervo.genero == undefined) {
-      tableGenero.innerText = " - "
-    }
+    tableGenero.innerText = acervo.genero || " - "
     tableEmprestado.innerText = acervo.emprestado ? "Sim" : "Não"
-    tableUsuarioEmprestado.innerText = acervo.usuarioEmprestimo
+    tableUsuarioEmprestado.innerText = acervo.usuarioEmprestimo || " - "
 
-    tbody.appendChild(tableRow)
     tableRow.appendChild(tableCheckbox)
     tableRow.appendChild(tableCodigo)
     tableRow.appendChild(tableTitulo)
@@ -42,7 +36,9 @@ export function createRowCollection(e) {
     tableRow.appendChild(tableGenero)
     tableRow.appendChild(tableEmprestado)
     tableRow.appendChild(tableUsuarioEmprestado)
-  })
+
+    tbody.appendChild(tableRow)
+  }
 
   const deleteButton = document.querySelector("#deleteButton")
   deleteButton.addEventListener("click", () => {
@@ -61,12 +57,17 @@ export function createRowCollection(e) {
       if (indexToRemove !== -1) {
         storedData.splice(indexToRemove, 1)
         // Atualiza o localStorage após a remoção do item específico
-        saveAcervo(storedData)
+        e.saveAcervo(storedData)
         console.log(`Item ${codigo} removido`) // Ajuste para exibir o código do item removido
       }
 
       row.remove()
     })
+  })
+
+  const storeAcervo = e.getAcervo() // Obter os dados do acervo
+  storeAcervo.forEach((acervo) => {
+    createTableRow(acervo) // Criar linha na tabela para cada item no acervo
   })
 }
 

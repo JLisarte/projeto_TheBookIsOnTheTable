@@ -1,4 +1,3 @@
-//rent.js
 import { getAcervo, getUsuarios, saveAcervo } from "../js/localStorage.js"
 import { Store } from "../entities/Store.js"
 

@@ -27,12 +27,12 @@
 
       <div class="add">
 
-        <a class="addItem" href="/src/views/addItem.htm" rel="noopener noreferrer">
+        <a class="addItem" href="/src/views/addItem.html" rel="noopener noreferrer">
           <img src="/src/assets/iconAddItem.png" alt="">
           <p>Add item</p>
         </a>
 
-        <a class="addUser" href="/src/views/addUser.htm" rel="noopener noreferrer">
+        <a class="addUser" href="/src/views/addUser.html" rel="noopener noreferrer">
           <img src="/src/assets/iconAddUser.png" alt="">
           <p>Add User</p>
         </a>
@@ -45,18 +45,26 @@
     <fieldset>
       <div class="fieldset-wrapper">
         <legend class="legend">Devolver Empréstimo</legend>
-        <div class="table">
-          <div class="input-wrapper">
-            <label for="ra">R.A.</label>
-            <input type="text" id="ra">
-          </div>              
-        </div>
+        <table>
+            <thead>
+              <tr>
+                <th><img src="/src/assets/arrowDown.png" alt="Flexa apontada para baixo" width="15"></th>
+                <th>Título</th>
+                <th>Emprestado</th>
+                <th>R.A do Usuário</th>
+              </tr>
+            </thead>
+            <tbody id="tbodyGb">
+            </tbody>
+        </table>
+      </div>  
     </fieldset>
   </form>
   <footer>
-    <button class="button" form="my-form">
+    <button class="gbButton" form="my-form">
     Devolver
     </button>
   </footer>
+  <script type="module" src="../js/giveBack.js" defer></script>
 </body>
 </html>

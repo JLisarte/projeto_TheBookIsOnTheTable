@@ -69,7 +69,7 @@ formAddItem.addEventListener("submit", (e) => {
   storedAcervo.push(item) // Adicionar o novo item à lista
   saveAcervo(storedAcervo) // Salvar a lista atualizada no localStorage
 
-  console.log(biblioteca)
+  console.log("Item adicionado com sucesso", item)
 })
 
 inputType.addEventListener("change", () => {

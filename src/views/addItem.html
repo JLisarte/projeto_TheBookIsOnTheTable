@@ -8,7 +8,7 @@
   <title>TheBookIsOnTheTable/AddItem</title>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles/style.css">
-  <script type="module" src="/src/js/addItem.js" defer></script>
+  
 </head>
 <body>
   <header>
@@ -28,12 +28,12 @@
 
       <div class="add">
 
-        <a class="addItem" href="./addItem.htm" rel="noopener noreferrer">
+        <a class="addItem" href="./addItem.html" rel="noopener noreferrer">
           <img src="../assets/iconAddItem.png" alt="">
           <p>Add item</p>
         </a>
 
-        <a class="addUser" href="./addUser.htm" rel="noopener noreferrer">
+        <a class="addUser" href="./addUser.html" rel="noopener noreferrer">
           <img src="../assets/iconAddUser.png" alt="">
           <p>Add User</p>
         </a>
@@ -68,7 +68,7 @@
           <option value="Revista">Revista</option>
         </select>     
       </div>
-      <div class="fieldset-wrapper" style="display: none;" id="option_genre">
+      <div class="fieldset-wrapper hidden" id="option_genre">
         <legend>Genero</legend>
         <select class="input-wrapper" id="genre" >
           <option value=""></option>
@@ -85,5 +85,6 @@
     Salvar
     </button>
   </footer>
+  <script type="module" src="/src/js/addItem.js" defer></script>
 </body>
 </html>
