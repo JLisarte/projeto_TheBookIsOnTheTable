@@ -185,3 +185,18 @@ footer {
   align-items: center;
   padding: 4rem 2rem;
 }
+
+footer button {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-base-6);
+  padding: 1rem 2rem;
+  background-color: var(--color-base-3);
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+footer button:hover {
+  background-color: var(--color-base-4);
+}
