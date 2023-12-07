@@ -24,9 +24,8 @@ export function createRowRent() {
     tableEmprestado.innerText = acervo.emprestado ? "Sim" : "Não"
 
     const selectElement = document.createElement("select")
-    selectElement.disabled = true // Desabilita por padrão
+    selectElement.disabled = true 
 
-    // Opção padrão para "Selecione um usuário"
     const defaultOption = document.createElement("option")
     defaultOption.disabled = true
     defaultOption.selected = true
@@ -38,7 +37,7 @@ export function createRowRent() {
         const option = document.createElement("option")
         option.value = usuario.registroAcademico
 
-        option.text = `RA: ${usuario.registroAcademico} - User: ${usuario.nome}` // Concatena o RA e o nome do usuário
+        option.text = `RA: ${usuario.registroAcademico} - User: ${usuario.nome}` 
         selectElement.appendChild(option)
       })
     } else {
@@ -47,10 +46,10 @@ export function createRowRent() {
       selectElement.appendChild(option)
     }
 
-    // Adiciona evento de escuta para cada checkbox
+    
     tableCheckbox.addEventListener("change", () => {
       if (tableCheckbox.checked) {
-        selectElement.disabled = false // Habilita o select ao marcar o checkbox
+        selectElement.disabled = false 
 
         selectElement.addEventListener("change", () => {
           if (selectElement.value !== "Selecione um usuário") {
@@ -65,7 +64,7 @@ export function createRowRent() {
           }
         })
       } else {
-        selectElement.disabled = true // Desabilita o select ao desmarcar o checkbox
+        selectElement.disabled = true 
       }
     })
 
@@ -79,7 +78,6 @@ export function createRowRent() {
     tableRow.appendChild(tableUsuarioEmprestado)
   })
 
-  // Adiciona evento para o botão "Emprestar"
   const rentButton = document.querySelector("#rentButton")
   rentButton.addEventListener("click", () => {
     const checkboxes = document.querySelectorAll(

@@ -36,7 +36,7 @@ export function createRowGiveBack() {
 
       if (acervo) {
         acervo.emprestado = false
-        acervo.usuarioEmprestimo = "" // Limpa o usuário emprestado ao devolver
+        acervo.usuarioEmprestimo = "" 
         saveAcervo(storedData)
         console.log(`Item ${acervo.titulo} devolvido`)
       }

@@ -25,7 +25,7 @@
 
 body {
   width: auto;
-  height: 100vh;
+  height: 130vh;
   font-family: 'Mulish', sans-serif;
   color: var(--color-base-1);
   font-size: 1.6rem;
@@ -35,8 +35,8 @@ body {
 body:before{
   content: "";
   position: absolute;
-  width: 100rem;
-  height: 100vh;
+  width: 65%;
+  height: 130vh;
   background: var(--color-base-6);
   z-index: -1;
 }
@@ -157,6 +157,14 @@ fieldset .fieldset-wrapper th {
   color: var(--color-base-6);
   padding: 1rem 2rem;
   background-color: var(--color-base-1);
+}
+
+.tbody input {
+  position: relative;
+  padding: auto;
+  margin-top: 0.6rem;
+  width: 50px;
+  height: 25px;
 }
 
 fieldset .fieldset-wrapper td {

@@ -35,7 +35,7 @@ body {
 body:before{
   content: "";
   position: absolute;
-  width: 100rem;
+  width: 65%;
   height: 100vh;
   background: var(--color-base-6);
   z-index: -1;

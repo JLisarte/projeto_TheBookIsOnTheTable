@@ -7,37 +7,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TheBookIsOnTheTable/AddItem</title>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/styles/style.css">
+  <link rel="stylesheet" href="/src/styles/rent.css">
   
 </head>
 <body>
   <header>
     <div class="header">
+
       <div class="nav">
-        <div>
-          <a class="logo" href="/index.html">
-            <img src="../assets/iconLibrary.png" alt="Estante de livros">
+        
+          <a class="homeOne" href="/index.html">
             <h1>The Book Is On The Table</h1>
           </a>
-        </div>
-        <div class="button">
-          <input type="text" placeholder="Digite sua busca">
-          <button>Buscar</button>
-        </div>
+          <a class="homeTwo" href="/index.html">
+            <h3>Home</h3>
+          </a>
+          <a class="collecction" href="collection.html">
+            <h3>Acervo</h3>
+          </a>
+          <a class="addUser" href="./users.html">
+            <h3>Usuários</h3>
+          </a>        
+          <a class="about" href="./about.html">
+            <h3>Sobre</h3>
+          </a>        
       </div>
-
-      <div class="add">
-
-        <a class="addItem" href="/src/views/addItem.html" rel="noopener noreferrer">
-          <img src="/src/assets/iconAddItem.png" alt="">
-          <p>Add item</p>
-        </a>
-
-        <a class="addUser" href="/src/views/addUser.html" rel="noopener noreferrer">
-          <img src="/src/assets/iconAddUser.png" alt="">
-          <p>Add User</p>
-        </a>
-
+      <div class="searchButton">
+        <input type="text" placeholder="Digite sua busca">
+        <button>
+          
+        </button>
       </div>
 
     </div>
@@ -57,7 +56,7 @@
                 <th>R.A do Usuário</th>
               </tr>
             </thead>
-            <tbody id="tbodyRent">
+            <tbody id="tbodyRent" class="tbody">
             </tbody>
         </table>
       </div>

@@ -3,7 +3,7 @@ import { Store } from "../entities/Store.js"
 export function createRowCollection(e) {
   const tbody = document.querySelector("#tbodyUser")
 
-  // Função para criar uma linha na tabela com os dados do acervo
+  
   function createTableRow(usuarios) {
     const tableRow = document.createElement("tr")
     const tableCheckbox = document.createElement("input")
@@ -34,26 +34,26 @@ export function createRowCollection(e) {
     checkboxes.forEach((checkbox) => {
       const row = checkbox.parentNode.parentNode
       const codigo = checkbox.id
-      const storedData = e.getUsuarios() // Obtém os dados atualizados
+      const storedData = e.getUsuarios() 
 
-      // Remove da lista acervo
+      
       const indexToRemove = storedData.findIndex(
         (usuarios) => usuarios.registroAcademico === registroAcademico
       )
       if (indexToRemove !== -1) {
         storedData.splice(indexToRemove, 1)
-        // Atualiza o localStorage após a remoção do item específico
+        
         e.saveAcervo(storedData)
-        console.log(`Usuário ${registroAcademico} removido`) // Ajuste para exibir o código do item removido
+        console.log(`Usuário ${registroAcademico} removido`) 
       }
 
       row.remove()
     })
   })
 
-  const storeUsuarios = e.getUsuarios() // Obter os dados do acervo
+  const storeUsuarios = e.getUsuarios() 
   storeUsuarios.forEach((usuarios) => {
-    createTableRow(usuarios) // Criar linha na tabela para cada item no acervo
+    createTableRow(usuarios) 
   })
 }
 

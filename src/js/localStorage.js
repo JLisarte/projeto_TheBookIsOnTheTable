@@ -1,4 +1,3 @@
-
 export function getAcervo() {
   return JSON.parse(localStorage.getItem("acervo")) || []
 }
