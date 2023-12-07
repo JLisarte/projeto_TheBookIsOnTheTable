@@ -75,10 +75,10 @@ formAddItem.addEventListener("submit", (e) => {
 inputType.addEventListener("change", () => {
   const tipo = inputType.value
   if (tipo === "Livro") {
-    option_genre.style.display = "block"
+    option_genre.style.display = "row"
   } else {
     option_genre.style.display = "none"
-  }
+    option_genre.required = false  }
 })
 
 

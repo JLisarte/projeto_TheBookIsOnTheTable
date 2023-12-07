@@ -133,79 +133,49 @@ header .searchButton button::before {
   margin: 0 auto;
 }
 
-main .items {
+fieldset .fieldset-wrapper legend {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--color-base-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+fieldset .fieldset-wrapper .table {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 20rem;
+  justify-content: space-around;
   align-items: center;
-  padding: 4rem 8rem;
+  padding: 1rem 2rem;
+}
+
+fieldset .fieldset-wrapper th {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-base-6);
+  padding: 1rem 2rem;
+  background-color: var(--color-base-1);
+}
+
+fieldset .fieldset-wrapper td {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-base-6);
+  padding: 1rem 2rem;
+}
+
+fieldset .fieldset-wrapper tr {
+  background-color: var(--color-base-2);
   
 }
 
-main fieldset {
-  width: 70rem;
-  border-radius: 10rem;
-  border: none;
-  padding: 2rem 5rem;
+fieldset .fieldset-wrapper tr:nth-child(2n) {
+  background-color: var(--color-base-1);
 }
 
-main fieldset h1 {
-  font-size: 2.4rem;
-  font-weight: 700;
-}
-
-main fieldset h2 {
-  margin: 2rem 0 2rem 0;
-  font-size: 2rem;
-  font-weight: 400;
-  color: var(--color-base-2);
-}
-
-main fieldset p {
-  margin-top: .8rem;
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--color-base-2);
-}
-
-main .imgbookHome img {
-  margin-left: -25rem;
-  width: 20rem;
-  border-radius: 25%;
-}
-
-main .imgNews {
-  margin: 1rem 0 0 5rem;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-main .imgNews img {
-  width: 10rem;
-  border-radius: 25%;
-}
-
-main .social h5 {
-  color: var(--color-base-6);
-  transform: rotate(90deg);
-  margin-bottom: 1rem;
-  border-bottom: var(--color-base-6) 1px solid;
-}
-
-main .social  {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  justify-content: center;
-}
-
-main .social img {
-  display: flex;
-  margin-top: 1rem;
+fieldset .fieldset-wrapper tr:hover{
+  background-color: var(--color-base-3);
 }
 
 footer {

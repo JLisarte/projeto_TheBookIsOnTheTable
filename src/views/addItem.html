@@ -44,23 +44,32 @@
     <fieldset>
       <div class="fieldset-wrapper">
         <legend>Adicione um acervo</legend>
-        <div class="input-wrapper">
-          <label for="title">Título</label>
-          <input type="text" id="title">
-        </div>
-        <div class="input-wrapper">
-          <label for="author">Autor</label>
-          <input type="text" id="author">
-        </div>
-        <div class="input-wrapper">
-          <label for="publicationYear">Ano de publicação</label>
-          <input type="text" id="publicationYear">
+        <ul>
+          <li>
+            <div class="input-wrapper">
+              <label for="title">Título</label>
+              <input type="text" id="title" required>
+            </div>
+          </li>
+          <li>
+            <div class="input-wrapper">
+              <label for="author">Autor</label>
+              <input type="text" id="author" required>
+            </div>
+          </li>
+          <li>
+            <div class="input-wrapper">
+              <label for="publicationYear">Ano de publicação</label>
+              <input type="text" id="publicationYear" required>
+            </div>
+          </li>      
+        </ul>
       </div>
     </fieldset>
     <fieldset>
       <div class="fieldset-wrapper">
         <legend>Tipo:</legend>
-        <select class="input-wrapper" id="type">
+        <select class="input-wrapper" id="type" required>
           <option value="">-</option>
           <option value="Livro">Livro</option>
           <option value="Revista">Revista</option>

@@ -8,6 +8,7 @@ export function createRowCollection(e) {
     const tableRow = document.createElement("tr")
     const tableCheckbox = document.createElement("input")
     tableCheckbox.type = "checkbox"
+    tableCheckbox.className = "checkbox"
     const tableCodigo = document.createElement("td")
     const tableTitulo = document.createElement("td")
     const tableAutor = document.createElement("td")
