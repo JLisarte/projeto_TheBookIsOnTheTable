@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TheBookIsOnTheTable/AddItem</title>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Ephesis&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/src/styles/giveBack.css">
+  <link  rel="stylesheet" href="/src/styles/addUser.css">
 </head>
 <body>
   <header>
@@ -21,11 +21,11 @@
           <a class="homeTwo" href="/index.html">
             <h3>Home</h3>
           </a>
-          <a class="collecction" href="collection.html">
+          <a class="collecction" href="./collection.html">
             <h3>Acervo</h3>
           </a>
-          <a class="addUser" href="./users.html">
-            <h3>Usuários</h3>
+          <a class="rent" href="./addUser.html">
+            <h3>Adicionar Usuário</h3>
           </a>        
           <a class="about" href="#">
             <h3>Sobre</h3>
@@ -40,30 +40,11 @@
 
     </div>
   </header>
-  <form id="my-form">
-    <fieldset>
-      <div class="fieldset-wrapper">
-        <legend class="legend">Devolver Empréstimo</legend>
-        <table>
-            <thead>
-              <tr>
-                <th><img src="/src/assets/arrowDown.png" alt="Flexa apontada para baixo" width="15"></th>
-                <th>Título</th>
-                <th>Emprestado</th>
-                <th>R.A do Usuário</th>
-              </tr>
-            </thead>
-            <tbody id="tbodyGb">
-            </tbody>
-        </table>
-      </div>  
-    </fieldset>
-  </form>
   <footer>
-    <button class="gbButton" form="my-form">
-    Devolver
+    <button id="deleteButton" form="my-form">
+    Excluir
     </button>
   </footer>
-  <script type="module" src="../js/giveBack.js" defer></script>
+  <script type="module" src="/src/js/collection.js" defer></script>
 </body>
 </html>
